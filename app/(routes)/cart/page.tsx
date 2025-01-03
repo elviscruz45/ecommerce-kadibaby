@@ -10,7 +10,7 @@ import { makePaymentRequest } from "@/api/payment";
 export default function Page() {
   const { items, removeAll } = useCart();
 
-  const prices = items.map((product) => product.attributes.price);
+  const prices = items.map((product) => product.price);
   const totalPrice = prices.reduce((total, price) => total + price, 0);
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -34,7 +34,7 @@ export default function Page() {
 
   return (
     <div className="max-w-6xl px-4 py-16 mx-auto sm:px-6 lg:px-8 lg:min-h-[80vh]">
-      <h1 className="mb-5 text-3xl font-bold">Shopping Cart</h1>
+      <h1 className="mb-5 text-3xl font-bold">Carrito de Compra</h1>
       <div className="grid sm:grid-cols-2 sm:gap-5">
         <div>
           {items.length === 0 && <p>No hay productos en el carrito</p>}
@@ -46,14 +46,20 @@ export default function Page() {
         </div>
         <div className="max-w-xl">
           <div className="p-6 rounded-lg bg-slate-100">
-            <p className="mb-3 text-lg font-semibold">Order Summary</p>
+            <p className="mb-3 text-lg font-semibold dark:text-black">
+              Resumen de Ordenes
+            </p>
             <Separator />
-            <div className="flex justify-between gap-5 my-4">
-              <p>Order total</p>
-              <p>{formatPrice(totalPrice)}</p>
+            <div className="flex justify-between gap-5 my-4 dark:text-black">
+              <p>Total</p>
+              <p>S/. {totalPrice}</p>
+              {/* <p>{formatPrice(totalPrice)}</p> */}
             </div>
-            <div className="flex items-center justify-center w-full mt-3">
-              <Button className="w-full" onClick={buyStripe}>
+            <div className="flex items-center justify-center w-full mt-3 ">
+              <Button
+                className="w-full dark:bg-black  dark:text-white"
+                onClick={buyStripe}
+              >
                 Comprar
               </Button>
             </div>

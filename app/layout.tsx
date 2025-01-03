@@ -4,14 +4,14 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/toaster"
-import NextTopLoader from 'nextjs-toploader'
+import { Toaster } from "@/components/ui/toaster";
+import NextTopLoader from "nextjs-toploader";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TarreDev E-commerce",
-  description: "Welcome to my e-commerce from TarreDev",
+  title: "KadiBaby",
+  description: "Descubre estilo y comodidad en cada prenda",
 };
 
 export default function RootLayout({
